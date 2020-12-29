@@ -7,6 +7,8 @@ public class Counter : MonoBehaviour , ISelectable
     public BaseItem Item;
     public GameObject showing;
     public GameObject ItemImage;
+
+    UIManager UIManager;
     
     //public InventoryScript playerInventory;
 
@@ -21,21 +23,12 @@ public class Counter : MonoBehaviour , ISelectable
     private void Start()
     {
         CheckItem();
+        UIManager = UIManager.Instance;
     }
 
 
 
-    public void SetItem(BaseItem newItem)
-    {
-        
-
-    }
-
-    public void RecieveItem(BaseItem item)
-    {
-        
-
-    }
+ 
     public void CheckItem()
     {
         if (Item != null && ItemImage == null)
@@ -48,24 +41,32 @@ public class Counter : MonoBehaviour , ISelectable
 
     public void RemoveItem()
     {
-        
+        Item = null;
+        Destroy(ItemImage);
     }
+
+
 
     public void Selected()
     {
         GetComponent<SpriteRenderer>().color = Color.red;
     }
 
-    public void ClickedOn()
-    {
-
-
-
-
-    }
 
     public void UnSelected()
     {
         GetComponent<SpriteRenderer>().color = Color.white;
     }
+
+    public void ClickedOn()
+    {
+        if (Item != null)
+        {
+            UIManager.HideAllPanels();
+            UIManager.ShowPanel(UIPanels.UIBuyScreen);
+            UIManager.UIBuyScreen.GetComponent<BuyScreen>().SetupTrade(Item, this);
+        }
+    }
+
+    
 }

@@ -35,7 +35,7 @@ public class Selector : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position,transform.up, InteractionDistance,LayerMask.GetMask("Interactive"));
         if (hit.collider != null)
         {
-            Debug.Log("pizza time");
+            
             //selection range from player
             if (hit.distance < 2)
             {

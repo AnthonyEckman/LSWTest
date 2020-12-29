@@ -26,11 +26,12 @@ public class InventoryManager : MonoBehaviour
         {
             _instance = this;
         }
+        ResetInventory();
     }
 
     private void Start()
     {
-        ResetInventory();
+        
     }
 
     // Update is called once per frame
@@ -41,8 +42,13 @@ public class InventoryManager : MonoBehaviour
 
     private void ResetInventory()
     {
-        CurrentInventory.Money = DefaultInventory.Money;
-        CurrentInventory.PlayerItems = DefaultInventory.PlayerItems;
+        CurrentInventory.Money = 0;
+        CurrentInventory.Money += DefaultInventory.Money;
+        CurrentInventory.PlayerItems.Clear();
+        foreach(BaseItem item in DefaultInventory.PlayerItems)
+        {
+            CurrentInventory.PlayerItems.Add(item);
+        }
     }
 
 

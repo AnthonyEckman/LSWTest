@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d75b9b2819a47e541bda66568765f9cd, type: 3}
-  m_Name: DefaultInventory
+  m_Script: {fileID: 11500000, guid: 44951982320afb94a81d1dff5709eb60, type: 3}
+  m_Name: Default
   m_EditorClassIdentifier: 
   Money: 200
   PlayerItems:
+  - {fileID: 11400000, guid: a93bac4a3479c8c4c9e5c32598bc08a2, type: 2}
   - {fileID: 11400000, guid: 00bb8dcbd37b7074c8226447cf34792f, type: 2}
+  - {fileID: 11400000, guid: eb5d1774eddf2634e8d20ee68369e708, type: 2}
