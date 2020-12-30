@@ -37,13 +37,13 @@ public class ShopKeeper : MonoBehaviour , ISelectable
 
     public void Selected()
     {
-        GetComponent<SpriteShapeRenderer>().color = Color.red;
+        GetComponent<SpriteRenderer>().color = Color.red;
         UIManager.Instance.SelectorText.text = "Sell Items(Space)";
     }
 
     public void UnSelected()
     {
-        GetComponent<SpriteShapeRenderer>().color = Color.white;
+        GetComponent<SpriteRenderer>().color = Color.white;
         UIManager.Instance.SelectorText.text = "";
     }
 }

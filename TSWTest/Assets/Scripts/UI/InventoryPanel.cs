@@ -72,7 +72,7 @@ public class InventoryPanel : MonoBehaviour
     public void ButtonClicked(UnityEngine.GameObject button, BaseItem item)
     {
         //if in sell mode item is sent to sell panel and removed from inventory
-        if(SellMode)
+        if (SellMode)
         {
             FindObjectOfType<SellPanel>().AddToTable(item);
             myInventoryManager.RemoveFromPlayerInventroy(item);
@@ -82,10 +82,13 @@ public class InventoryPanel : MonoBehaviour
         //not possible to sell stuff that is equiped, would like to rework.
         else
         {
-            myEquipmentScreen.EquipItem(item);
-            myInventoryManager.RemoveFromPlayerInventroy(item);
-            PopulateInventory();
-        }
+            if (item.myCategory[0] != Categories.FoodItem)
+            {
+                myEquipmentScreen.EquipItem(item);
+                myInventoryManager.RemoveFromPlayerInventroy(item);
+                PopulateInventory();
+            }
+        } 
         
     }
 }
