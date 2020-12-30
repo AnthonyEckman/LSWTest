@@ -374,7 +374,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -253.5, y: 195.38}
+  m_AnchoredPosition: {x: -269, y: 275.11}
   m_SizeDelta: {x: 311.14474, y: 45.1911}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &151667760
@@ -944,11 +944,11 @@ RectTransform:
   m_Children:
   - {fileID: 1953720696}
   m_Father: {fileID: 780966395}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 327, y: 199.63}
+  m_AnchoredPosition: {x: 429.97, y: 279.31}
   m_SizeDelta: {x: 161.94084, y: 53.59468}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &445560053
@@ -1406,8 +1406,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 356, y: -10.083984}
-  m_SizeDelta: {x: -1134.1179, y: -77.423096}
+  m_AnchoredPosition: {x: 359.77, y: -45}
+  m_SizeDelta: {x: -1134.6299, y: -260.71234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &528608945
 MonoBehaviour:
@@ -1576,17 +1576,17 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1782338691}
   - {fileID: 1548683858}
   - {fileID: 445560052}
-  - {fileID: 1782338691}
   - {fileID: 151667759}
   m_Father: {fileID: 1550987204}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 426.9, y: 188.6}
-  m_SizeDelta: {x: -853.7738, y: -377.20163}
+  m_AnchoredPosition: {x: 412.23, y: -11}
+  m_SizeDelta: {x: -824.44995, y: -403.51627}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &780966396
 MonoBehaviour:
@@ -1885,7 +1885,7 @@ MonoBehaviour:
   EquipScreen: {fileID: 0}
   UIBuyScreen: {fileID: 0}
   UISellScreen: {fileID: 0}
-  textBox: {fileID: 1332135935013782437, guid: a9abe587e7efcdf4990e78af61c595f4, type: 3}
+  textBox: {fileID: 8854326692868137938, guid: 4323a50c640c1e4478738de6c1166a2e, type: 3}
   MoneyAmmount: {fileID: 895805906}
   SelectorText: {fileID: 6062355659446316133}
 --- !u!114 &983615304
@@ -3032,11 +3032,11 @@ RectTransform:
   m_Children:
   - {fileID: 1782116439}
   m_Father: {fileID: 780966395}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.2, y: -186.61}
+  m_AnchoredPosition: {x: -0.0000038147, y: -247}
   m_SizeDelta: {x: 306.9256, y: 75.39789}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1548683859
@@ -4089,7 +4089,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 780966395}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
