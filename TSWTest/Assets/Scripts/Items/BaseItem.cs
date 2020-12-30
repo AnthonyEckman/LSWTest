@@ -6,13 +6,17 @@ using UnityEngine;
 public enum Categories
 {
     FoodItem,
-    WeaponItem,
-    ClothesItem
+    HeadArmour,
+    ChestArmour,
+    WaistArmour,
+    FeetArmour,
+    MainHand,
+    OffHand
 }
 
 
 
-
+//Container for each item in game
 [System.Serializable]
 [CreateAssetMenu(menuName = "ItemGenerator/newItem")]
 public abstract class BaseItem : ScriptableObject

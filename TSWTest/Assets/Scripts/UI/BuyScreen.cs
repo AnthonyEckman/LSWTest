@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//screen handles purchasing of an item from a counter
 public class BuyScreen : MonoBehaviour
 {
+    //singletone references
     public InventoryManager myInventoryManager;
     public UIManager myUIManager;
 
+    //item information
     public Text BuyText;
     public Image ItemImage;
 
+    //item and counter reference
     BaseItem activeItem;
     Counter activeCounter;
 
@@ -28,12 +32,13 @@ public class BuyScreen : MonoBehaviour
 
     }
 
+    //if trade is accepted, money is taken from player inventory and item is added to player inventory.
     public void AcceptTrade()
     {
         if (myInventoryManager.CurrentInventory.Money - activeItem.price >= 0)
         {
-            myInventoryManager.CurrentInventory.Money -= activeItem.price;
-            myInventoryManager.CurrentInventory.PlayerItems.Add(activeItem);
+            myInventoryManager.RemoveMoney(activeItem.price);
+            myInventoryManager.AddToPlayerInventory(activeItem);
             myUIManager.HidePanel(UIPanels.UIBuyScreen);
             myUIManager.UIInventoryMenu.GetComponent<InventoryPanel>().PopulateInventory();
             activeCounter.RemoveItem();
@@ -41,12 +46,15 @@ public class BuyScreen : MonoBehaviour
         }
     }
 
+    //rehides panel and clears it
     public void DeclineTrade()
     {
         myUIManager.HidePanel(UIPanels.UIBuyScreen);
         Clear();
     }
 
+    //called from counters when a trade is initiated.
+    //Sets up images and text for the appropriate item
     public void SetupTrade(BaseItem item,Counter counter)
     {
         BuyText.text = "Name: " + item.name + "\nDescription: " + item.description + "\nPrice: " + item.price;

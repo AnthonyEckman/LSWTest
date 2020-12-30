@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Singleton Class that handles all transactions involvoing player inventory.
+/// </summary>
 public class InventoryManager : MonoBehaviour
 {
-    //singleton class that manages all player invetory interactions
+    
 
     private static InventoryManager _instance;
     
@@ -40,6 +44,7 @@ public class InventoryManager : MonoBehaviour
         
     }
 
+    //Called on game start to make player inventory mirror a default template
     private void ResetInventory()
     {
         CurrentInventory.Money = 0;

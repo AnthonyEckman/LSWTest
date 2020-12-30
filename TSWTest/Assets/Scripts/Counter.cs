@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script for counters in game world that hold items
+//can be interacted with to buy an item.
 public class Counter : MonoBehaviour , ISelectable
 {
     public BaseItem Item;
-    public GameObject showing;
-    public GameObject ItemImage;
+    public UnityEngine.GameObject showing;
+    public UnityEngine.GameObject ItemImage;
 
     UIManager UIManager;
     
@@ -28,7 +30,7 @@ public class Counter : MonoBehaviour , ISelectable
 
 
 
- 
+    //Checks to see if the counter is storing an item, if it is it will spawn an image of it.
     public void CheckItem()
     {
         if (Item != null && ItemImage == null)
@@ -39,6 +41,7 @@ public class Counter : MonoBehaviour , ISelectable
         }
     }
 
+    //removed item from the counter
     public void RemoveItem()
     {
         Item = null;
@@ -46,18 +49,24 @@ public class Counter : MonoBehaviour , ISelectable
     }
 
 
-
+    //Indicates when the player can interact with it
     public void Selected()
     {
         GetComponent<SpriteRenderer>().color = Color.red;
+        if (Item != null)
+        {
+            UIManager.SelectorText.text = "Buy " + Item.name + "(Space)";
+        }
     }
-
 
     public void UnSelected()
     {
         GetComponent<SpriteRenderer>().color = Color.white;
+        UIManager.Instance.SelectorText.text = "";
     }
 
+
+    //Calls BuyScreen and starts a transaction
     public void ClickedOn()
     {
         if (Item != null)

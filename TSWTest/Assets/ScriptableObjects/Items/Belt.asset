@@ -16,4 +16,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 183ad819c4751ff4b9fde52018778b0c, type: 3}
   description: Certified Pants Holder
   price: 60
-  myCategory: 02000000
+  myCategory: 03000000

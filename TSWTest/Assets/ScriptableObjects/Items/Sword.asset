@@ -16,4 +16,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: d625705c2b10393418fa45b27c7370b0, type: 3}
   description: Don't poke your eye out.
   price: 100
-  myCategory: 01000000
+  myCategory: 05000000

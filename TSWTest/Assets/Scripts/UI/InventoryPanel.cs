@@ -4,16 +4,24 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.EventSystems;
 
+//Manages and populates inventory screen;
 public class InventoryPanel : MonoBehaviour
 {
+    //References to singleton classes
     public InventoryManager myInventoryManager;
     public UIManager myUIManager;
 
-    public GameObject ButtonPrefab;
+    //Equipscreen Reference
+    EquipScreen myEquipmentScreen;
 
-    private List<GameObject> buttonList = new List<GameObject>();
+    //prefab button objects that is spawned for each inventory item
+    public UnityEngine.GameObject ButtonPrefab;
 
+    //list of all items currently visible in the inventory
+    private List<UnityEngine.GameObject> buttonList = new List<UnityEngine.GameObject>();
 
+    //bool that is flipped whenever a sale is started or ended.
+    public bool SellMode = false;
 
     private void Awake()
     {
@@ -25,6 +33,7 @@ public class InventoryPanel : MonoBehaviour
         myUIManager = UIManager.Instance;
         myInventoryManager = InventoryManager.Instance;
         myUIManager.UIInventoryMenu = gameObject;
+        myEquipmentScreen = myUIManager.EquipScreen.GetComponent<EquipScreen>();
         PopulateInventory();
         gameObject.SetActive(false);
         
@@ -35,30 +44,48 @@ public class InventoryPanel : MonoBehaviour
     {
         
     }
+    //deconstructs inventory and remakes it according to the player's current inventory scriptable object.
     public void PopulateInventory()
     {
+        //clearing
         if(buttonList.Count >= 1)
         {
-            foreach(GameObject button in buttonList)
+            foreach(UnityEngine.GameObject button in buttonList)
             {
                 Destroy(button);
             }
             buttonList.Clear();
         }
-
+        //checks player inventory and creates a uielement for each inventory item
         foreach (BaseItem item in myInventoryManager.CurrentInventory.PlayerItems)
         {
-            GameObject temp = GameObject.Instantiate(ButtonPrefab, transform);
+            UnityEngine.GameObject temp = UnityEngine.GameObject.Instantiate(ButtonPrefab, transform);
             temp.GetComponent<InventoryButton>().myItem = item;
-            temp.GetComponent<InventoryButton>().myPanel = this;
+            temp.GetComponent<InventoryButton>().myPanel = this.gameObject;
             buttonList.Add(temp);
 
         }
 
     }
 
-    public void ButtonClicked(GameObject button, BaseItem item)
+    //called whenever an item is clicked from the inventory window
+    public void ButtonClicked(UnityEngine.GameObject button, BaseItem item)
     {
+        //if in sell mode item is sent to sell panel and removed from inventory
+        if(SellMode)
+        {
+            FindObjectOfType<SellPanel>().AddToTable(item);
+            myInventoryManager.RemoveFromPlayerInventroy(item);
+            PopulateInventory();
+        }
+        //sent to equipment screena nd removed from inventory.
+        //not possible to sell stuff that is equiped, would like to rework.
+        else
+        {
+            myEquipmentScreen.EquipItem(item);
+            myInventoryManager.RemoveFromPlayerInventroy(item);
+            PopulateInventory();
+        }
         
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Stores player items and money
 [CreateAssetMenu(menuName = "PlayerInventory/NewInventory")]
 public class PlayerInventory : ScriptableObject
 {

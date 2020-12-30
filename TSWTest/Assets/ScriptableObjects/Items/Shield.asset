@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c8115d71743e29488e44cdcc692cf0b, type: 3}
+  m_Name: Shield
+  m_EditorClassIdentifier: 
+  myName: Shield
+  icon: {fileID: 21300000, guid: 0d2df74cd40ea7b4cb686dda25352114, type: 3}
+  description: Shields Up!
+  price: 60
+  myCategory: 06000000
